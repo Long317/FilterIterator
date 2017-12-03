@@ -38,13 +38,7 @@ public class FilteringIterator implements Iterator {
 
     @Override
     public Object next() {
-        //if hasNext has been called
-        if (isNextCalled) {
-            isNextCalled = false;
-            return next;
-        }
-        //if hasNext has not been called
-        if (hasNext()) {
+        if (isNextCalled || hasNext()) {
             isNextCalled = false;
             return next;
         } else {
